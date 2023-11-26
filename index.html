@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="Description" content="Enter your description here" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.6/dist/sweetalert2.min.css"> -->
+    <!-- <link rel="stylesheet" href="/dist/css/blurt.min.css"> -->
+    <link rel="stylesheet" href="https://unpkg.com/sweetalert/dist/sweetalert.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+
+<body>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="alert alert-secondary text-center">
+                    CRUD PR-3
+                </h1>
+            </div>
+
+            <div class="col-lg-2">
+                <button type="button" data-toggle="modal" data-target="#userform" id="adduser" class="button">
+                    <i class="fa fa-address-card" style="margin-right: 5px;"></i>Add User</button>
+            </div>
+
+            <div class="modal fade" id="userform" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+                aria-hidden="true">
+
+                <div class="modal-dialog modal-lg  modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="userformtitle">User Details</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                onclick="resetData()">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body">
+
+                            <form id="form">
+                                <input type="hidden" name="id" id="id">
+
+                                <div class="input-control">
+                                    <label>First Name</label>
+                                    <input type="text" placeholder="First Name" class="form-control" name="fname"
+                                        id="fname" required>
+                                    <div class="error"></div>
+
+                                </div>
+
+                                <br>
+                                <div class="input-control">
+                                    <label>Last Name</label>
+                                    <input type="text" placeholder="Last Name" class="form-control" name="lname"
+                                        id="lname" required>
+                                    <div class="error"></div>
+                                </div>
+                                <br>
+
+                                <div class="input-control">
+                                    <label>Age</label>
+                                    <input type="number" placeholder="Age" class="form-control" name="age" id="age"
+                                        required>
+                                    <div class="error"></div> <br>
+                                </div>
+
+                                <div class="input-control">
+                                    <label id="gender">Gender</label><br>
+                                    <input type="radio" id="Female" name="gender" value="Female">
+                                    <label for="Female">Female</label>
+                                    <input type="radio" id="male" name="gender" value="male">
+                                    <label for="male">Male</label>
+                                    <div class="error"></div>
+                                </div>
+                                <br>
+                                <div class="input-control">
+                                    <label>Email</label>
+                                    <input type="text" placeholder="E-mail" class="form-control" id="email" name="email"
+                                        required>
+                                    <div class="error"></div>
+                                </div>
+                                <br>
+
+                                <div class="input-control">
+                                    <label for="country">Country</label>
+                                    <select name="country" id="country" class="form-select  form-select-md col-lg-6"
+                                         required>
+                                        <option value="">-----Select-----</option>
+
+                                    </select>
+                                    <div class="error"></div>
+                                </div>
+                                <br>
+
+                                <div class="input-control">
+                                    <label>State</label>
+                                    <select name="state" id="state" class="form-select  form-select-md col-lg-6 "
+                                        required>
+                                        <option value="">-----Select-----</option>
+
+                                    </select>
+                                    <div class="error"></div>
+                                </div>
+                                <br>
+                                <div class="input-control">
+                                    <label>City</label>
+                                    <select name="city" id="city" class="form-select  form-select-md col-lg-6 "
+                                        required>
+
+                                        <option value="">-----Select-----</option>
+
+                                    </select>
+                                    <div class="error"></div>
+                                </div>
+                                <br>
+                                <div class="input-control">
+                                    <label id="quli">Qualification</label>
+                                    <div class="form-check" required>
+                                        <input class="form-check-input" type="checkbox" value="CE" id="CE">
+                                        <label>
+                                            Computer Engineering</label>
+
+                                        <br>
+                                        <input class="form-check-input" type="checkbox" value="IT" id="IT">
+                                        <label>
+                                            Information Technology</label>
+
+
+                                    </div>
+                                    <div class="error"></div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" id="updateBtn" class="btn btn-danger" onclick="updateBtn()"
+                                        style="visibility: hidden;" data-dismiss="modal">Update</button>
+                                    <button type="submit" id="submitBtn" class="btn btn-primary">
+                                        Submit</button>
+                                    <button type="submit" id="cancelBtn" class="btn btn-primary" onclick="resetData()">
+                                        Cancel</button>
+
+                                </div>
+
+                            </form>
+
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="table" class="table">
+                                <thead>
+                                    <tr>
+
+                                        <th>No</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Age</th>
+                                        <th>Gender</th>
+                                        <th>Email</th>
+                                        <th>Country</th>
+                                        <th>State</th>
+                                        <th>City</th>
+                                        <th>Qualification</th>
+                                        <th colspan="2">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="datatable">
+
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- <script src="/dist/js/blurt.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.6/dist/sweetalert2.all.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+    <script src="script_h.js"></script>
+    <script>
+        function resetData() {
+            document.getElementById("form").reset();
+            setTimeout(function () {
+                window.location.reload();
+            }, 10);
+        }
+    </script>
+
+
+
+</body>
+
+</html>

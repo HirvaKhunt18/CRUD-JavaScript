@@ -1,0 +1,45 @@
+.button{
+    border: none;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    background-color: blue;
+    width: 80%;
+    height: 38px;
+        
+    
+}
+
+.card{
+    margin-top: 10px;
+}
+#cancelBtn{
+    background-color: red;
+}
+.error{
+    color: red;
+    font-size: 11px;
+}
+.input-control.success input {
+    border-color: #09c372;
+}
+
+label{
+    color: black;
+    font-size: 16px;
+}
+.btn{
+    align-items: center;
+}
+table, td, th {  
+    border: 1px solid #ddd;
+    text-align: left;
+    text-align: center;
+}
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  
